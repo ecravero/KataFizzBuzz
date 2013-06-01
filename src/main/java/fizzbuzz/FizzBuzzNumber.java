@@ -6,12 +6,12 @@ package main.java.fizzbuzz;
  * 
  */
 public class FizzBuzzNumber {
-	private static final int FIZZ_VALUE = 3;
-	private static final int BUZZ_VALUE = 5;
+	private static final Integer FIZZ_VALUE = 3;
+	private static final Integer BUZZ_VALUE = 5;
 	private static final String FIZZ_MESSAGE = "Fizz";
 	private static final String BUZZ_MESSAGE = "Buzz";
 
-	private int value;
+	private Integer value;
 
 	public FizzBuzzNumber(int value) {
 		this.value = value;
@@ -34,19 +34,22 @@ public class FizzBuzzNumber {
 		return printableValue;
 	}
 
-	private boolean isBuzz() {
-		return value % BUZZ_VALUE == 0;
-	}
-
 	private boolean isFizz() {
-		return value % FIZZ_VALUE == 0;
+		return value % FIZZ_VALUE == 0
+				|| value.toString().contains(FIZZ_VALUE.toString());
 	}
 
-	public int getValue() {
+	private boolean isBuzz() {
+		return value % BUZZ_VALUE == 0
+				|| value.toString().contains(BUZZ_VALUE.toString());
+	}
+
+	public Integer getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(Integer value) {
 		this.value = value;
 	}
+
 }
